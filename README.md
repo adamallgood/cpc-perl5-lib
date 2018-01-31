@@ -1,5 +1,4 @@
-CPC Perl5 library Readme
-======
+# cpc-perl5-lib
 
 Coming soon
 
