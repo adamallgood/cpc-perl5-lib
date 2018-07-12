@@ -64,6 +64,11 @@ sub grads {
     my $r = $result;
     $r    =~ tr/\n/ /;
 
+    # Replace 'warning' with 'note' for set xaxis and set yaxis overriding default warning from GrADS
+
+    $r    =~ s/Warning:  X axis labels overridden by SET XAXIS/Note: X axis labels overridden by SET XAXIS/g;
+    $r    =~ s/Warning:  Y axis labels overridden by SET YAXIS/Note: Y axis labels overridden by SET YAXIS/g;
+
     if($r =~ /warning/i or $r =~ /undefined/i or $r =~ /constant/i or $r =~ /cannot/i or $r =~ /error/i) {
         return "CPC::SpawnGrads::grads: Potential GrADS runtime problem detected. Output from GrADS:\n$result\n";
     }
